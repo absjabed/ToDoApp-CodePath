@@ -41,11 +41,11 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1:** "What are your reactions to the Android app development platform so far? Compare and contrast Android's approach to layouts and user interfaces in past platforms you've used."
 
-**Answer:** [Very interesting to work with Android development platform. Android App development is challenging then then other platforms I've worked lately].
+**Answer:** [Very interesting to work with Android app development platform. Android App development is bit tricky then other platforms I've worked lately because it's not only about what features are included it's also about how layout and user interface looks].
 
 **Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** [I've used ArrayAdapter with a layout file and a String array of todo data to setAdapter for the list view. Adapters works as a bridge between the UI components and the data source that fill data into the UI Component. convertView in the getView method of the ArrayAdapter is used to reuse old view].
 
 ## Notes
 
