@@ -7,11 +7,29 @@
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:gravity="center_vertical"
+    android:background="#f1f8e9"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.absjbd.todoapp.MainActivity">
+    tools:context="com.absjbd.todoapp.Activity.MainActivity">
 
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/img"
+        android:layout_marginBottom="15dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingBottom="20dp"
+        android:textColor="#01579b"
+        android:gravity="center_horizontal"
+        android:text="ToDo Stuffs"/>
 
     <Button
         android:layout_width="match_parent"
@@ -19,18 +37,20 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textColor="#fff"
+        android:textStyle="bold"
         android:textSize="20sp"
         android:background="@color/colorAccent"
-        android:text="View Todo"
+        android:text="View Todo tasks"
         android:onClick="onClickViewTodo"/>
 
     <Button
         android:id="@+id/addTodo"
         android:layout_width="match_parent"
         android:layout_height="65dp"
+        android:textStyle="bold"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:text="Add Todo"
+        android:text="Add Todo tasks"
         android:textColor="#fff"
         android:textSize="20sp"
         android:layout_marginTop="10dp"

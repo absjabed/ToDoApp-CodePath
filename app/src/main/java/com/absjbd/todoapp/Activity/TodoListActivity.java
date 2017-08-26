@@ -1,4 +1,4 @@
-package com.absjbd.todoapp;
+package com.absjbd.todoapp.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.absjbd.todoapp.Adapter.TodoAdapter;
+import com.absjbd.todoapp.Controller.MyDBFunctions;
+import com.absjbd.todoapp.Model.TodoModel;
+import com.absjbd.todoapp.R;
+
+import java.util.ArrayList;
+
 /**
  * Created by absjabed on 08/19/17.
  */
@@ -17,25 +25,28 @@ public class TodoListActivity extends AppCompatActivity {
 
     private ListView lvItems;
     String[] data;
+    ArrayList<TodoModel> todoModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
 
-
         lvItems = (ListView) findViewById(R.id.lvItems);
+
        final MyDBFunctions mf = new MyDBFunctions(getApplicationContext());
+        todoModels = mf.getAllTodoData();
 
-        data = mf.my_data();
+        TodoAdapter todoAdapter = new TodoAdapter(this, todoModels);
 
-        lvItems.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.lview, R.id.mytext, data));
+        lvItems.setAdapter(todoAdapter);
+        //lvItems.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.lview, R.id.mytext, data));
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getApplicationContext(), ItemEditActivity.class);
-                i.putExtra("MyKEY", position);
+                i.putExtra("MyKEY", position+1);
                 startActivity(i);
             }
         });
@@ -59,10 +70,13 @@ public class TodoListActivity extends AppCompatActivity {
                                             .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
+
                                                     mf.delete_todo(mf.fetch_todo(posFinal+1));
                                                     Toast.makeText(getApplicationContext(), "Deleted Successfully!", Toast.LENGTH_SHORT).show();
-                                                    data = mf.my_data();
-                                                    lvItems.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.lview, R.id.mytext, data));
+
+                                                    todoModels = mf.getAllTodoData();
+                                                    TodoAdapter todoAdapter = new TodoAdapter(TodoListActivity.this, todoModels);
+                                                    lvItems.setAdapter(todoAdapter);
                                                 }
                                             }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {

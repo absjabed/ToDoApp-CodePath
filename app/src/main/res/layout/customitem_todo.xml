@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="1dp"
+    android:background="#fafafa"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTodoName"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Todo Name"
+        android:textColor="#3f51b5"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:gravity="center_horizontal"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:weightSum="3"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tvTodoDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Due Date"
+            android:textStyle="bold"
+            android:textColor="#9c27b0"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Status"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvPriority"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Priority"
+            android:textStyle="bold"
+            android:textColor="#E91E63"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

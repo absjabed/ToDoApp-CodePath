@@ -1,8 +1,11 @@
-package com.absjbd.todoapp;
+package com.absjbd.todoapp.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.absjbd.todoapp.R;
+
 /**
  * Created by absjabed on 08/19/17.
  */
