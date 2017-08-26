@@ -4,7 +4,7 @@
 
 Submitted by: **Mohammad Abu Bakar Siddqe (Jabed)**
 
-Time spent: **3** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
@@ -17,10 +17,10 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [x] Persist the todo items [into SQLite](http://guides.codepath.com/android/Persisting-Data-to-the-Device#sqlite) instead of a text file
-* [ ] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
-* [ ] Add support for completion due dates for todo items (and display within listview item)
+* [x] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
+* [x] Add support for completion due dates for todo items (and display within listview item)
 * [ ] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
-* [ ] Add support for selecting the priority of each todo item (and display in listview item)
+* [x] Add support for selecting the priority of each todo item (and display in listview item)
 * [x] Tweak the style improving the UI / UX, play with colors, images or backgrounds
 
 The following **additional** features are implemented:
@@ -45,7 +45,7 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
 
-**Answer:** [I've used ArrayAdapter with a layout file and a String array of todo data to setAdapter for the list view. Adapters works as a bridge between the UI components and the data source that fill data into the UI Component. convertView in the getView method of the ArrayAdapter is used to reuse old view].
+**Answer:** [I've used a custom Adapter for custom listview extending ArrayAdapter<Model> with a custom layout file (customitem_todo.xml) and a ArrayList of todoModel to write the custom Adapter for the listview. Adapters works as a bridge between the UI components and the data source that fill data into the UI Component. convertView in the getView method of the ArrayAdapter is used to reuse old view].
 
 ## Notes
 
