@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,16 +38,22 @@ public class TodoListActivity extends AppCompatActivity {
        final MyDBFunctions mf = new MyDBFunctions(getApplicationContext());
         todoModels = mf.getAllTodoData();
 
-        TodoAdapter todoAdapter = new TodoAdapter(this, todoModels);
-
+        final TodoAdapter todoAdapter = new TodoAdapter(this, todoModels);
         lvItems.setAdapter(todoAdapter);
-        //lvItems.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.lview, R.id.mytext, data));
+
+        lvItems.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getApplicationContext(), ItemEditActivity.class);
-                i.putExtra("MyKEY", position+1);
+                i.putExtra("MyKEY", position);
+//                Toast.makeText(TodoListActivity.this, position+" : and -3 :"+(position-3), Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         });
@@ -59,6 +66,8 @@ public class TodoListActivity extends AppCompatActivity {
                                                    View item, int pos, long id) {
 
                         final int posFinal = pos;
+
+ //                       Toast.makeText(TodoListActivity.this, pos+" : and -3 :"+(pos-3), Toast.LENGTH_SHORT).show();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -71,12 +80,11 @@ public class TodoListActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
 
-                                                    mf.delete_todo(mf.fetch_todo(posFinal+1));
+                                                    mf.delete_todo(mf.fetch_todo(posFinal));
                                                     Toast.makeText(getApplicationContext(), "Deleted Successfully!", Toast.LENGTH_SHORT).show();
-
-                                                    todoModels = mf.getAllTodoData();
+                                                    /*todoModels = mf.getAllTodoData();
                                                     TodoAdapter todoAdapter = new TodoAdapter(TodoListActivity.this, todoModels);
-                                                    lvItems.setAdapter(todoAdapter);
+                                                    lvItems.setAdapter(todoAdapter);*/
                                                 }
                                             }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -95,7 +103,5 @@ public class TodoListActivity extends AppCompatActivity {
 
 
     }
-
-
 
 }

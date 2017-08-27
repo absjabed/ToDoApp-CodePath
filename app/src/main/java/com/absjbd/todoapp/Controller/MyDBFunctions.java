@@ -135,6 +135,25 @@ public class MyDBFunctions extends SQLiteOpenHelper {
 
         return recvied_data;*/
     }
+    /*
+    *
+    * // Getting single contact
+    Contact getContact(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
+                KEY_NAME, KEY_PH_NO }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1), cursor.getString(2));
+        // return contact
+        return contact;
+    }
+    *
+    * */
 
 
    public TodoModel fetch_todo(int id) {
@@ -144,7 +163,7 @@ public class MyDBFunctions extends SQLiteOpenHelper {
         String q = "SELECT "+TAB_NAME+", "+TAB_DATE+","+TAB_STATUS+","+TAB_PRIORITY+" FROM "+TABLE_NAME+" WHERE "+TAB_ID+" = "+id;
 
         Cursor c = sq.rawQuery(q, null);
-       TodoModel todo = new TodoModel();
+        TodoModel todo = new TodoModel();
 
         c.moveToFirst();
 
@@ -189,8 +208,9 @@ public class MyDBFunctions extends SQLiteOpenHelper {
   public int delete_todo(TodoModel todo){
 
         SQLiteDatabase s = this.getWritableDatabase();
+        return s.delete(TABLE_NAME, TAB_NAME + " = ?",
+              new String[] { String.valueOf(todo.getTodoName()) });
 
-        return s.delete(TABLE_NAME, TAB_NAME+" = ?", new String[] {todo.getTodoName()});
 
     }
 

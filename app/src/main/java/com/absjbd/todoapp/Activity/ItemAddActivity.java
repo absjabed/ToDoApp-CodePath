@@ -59,7 +59,6 @@ public class ItemAddActivity extends AppCompatActivity {
 
                 TodoModel dt = new TodoModel(todoString,date,status,priorities);
 
-                Toast.makeText(getApplicationContext(), "Todo: "+todoString+"\nDate: "+date+"\nStatus: "+status+"\nPriorities: "+priorities, Toast.LENGTH_SHORT).show();
                 mf.addingDataToTable(dt);
                 etTodoNewItem.setText(null);
                 etToDoDate.setText(null);

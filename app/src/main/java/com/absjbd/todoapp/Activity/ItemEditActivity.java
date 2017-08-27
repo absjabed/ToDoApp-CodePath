@@ -59,9 +59,9 @@ public class ItemEditActivity extends AppCompatActivity {
         etUpdate.setText(todo.getTodoName());
         etToDoDate.setText(todo.getDueDate());
 
-        if(todo.getPriority().equals("HIGH")){
+        if(todo.getPriority().equals("High")){
             spnrP.setSelection(0);
-        }else if(todo.getPriority().equals("MEDIUM")){
+        }else if(todo.getPriority().equals("Medium")){
             spnrP.setSelection(1);
         }else{
             spnrP.setSelection(2);

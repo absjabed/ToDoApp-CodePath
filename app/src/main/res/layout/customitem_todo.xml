@@ -27,7 +27,7 @@
             android:text="Due Date"
             android:textStyle="bold"
             android:textColor="#9c27b0"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center_horizontal"
             android:layout_weight="1"/>
         <TextView
